@@ -52,19 +52,6 @@ header {
   text-align: center;
 }
 
-.quiz-rules {
-text-align: center   
-}
-
-.quiz-section {
-    min-height: 100px;
-    text-align: center;
-  }
-.quiz-question {
-  min-height: 100px;
-  text-align: center;
-}
-
 .card-footer {
   text-align: center;
 }
@@ -97,14 +84,6 @@ text-align: center
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
-}
-
-.start-button{
-text-align: center;
-}
-
-.next-button{
-text-align: center;
 }
 
 .hide {

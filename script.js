@@ -18,35 +18,45 @@ function startQuiz() {
     console.log("next button displayed");
     quizSectionDiv.classList.remove("hide");
     console.log("quiz section displayed");
-
-
-
+    setNextQuestion()
 }
 
-// var questions = [{
-//     question: "How many columns can you have in a row?",
-//     options: ["16", "8", "12", "4"],
-//     correctAnswer: "12",
-// }, {
-//     question: "What is used to create dynamic web apps that take in user inputs, animate elements & much more?",
-//     options: ["CSS", "Javascript", "Bootstrap", "GitBash"],
-//     correctAnswer: "JavaScript",
-// }, {
-//     question: "Indexes always start with what number?",
-//     options: ["A", "1", "100", "0"],
-//     correctAnswer: "0",
-// },
-// {
-//     question: "What is a set of code features that developers can use in their app to interact with components of a user's web browser, data sets, hardware/software on a user's computer?",
-//     options: ["API", "HTML", "HTTPS", "Bootstrap"],
-//     correctAnswer: "API",
-// },
-// {
-//     question: "What function stops additional nested events from firing off?",
-//     options: ["Stop Propogation", "Stop Javascript", "Stop HTML", "Stop Load"],
-//     correctAnswer: "Stop Propogation",
-// },
-// ];
+// Add event listener to "Next" button
+nextButton.addEventListener("click", setNextQuestion)
+
+// Update quiz with next question
+function setNextQuestion() {
+    showQuestion()
+}
+
+function showQuestion(question) {
+    quizQuestionDiv.textContent = questions.question
+}
+
+var questions = [{
+    question: "How many columns can you have in a row?",
+    options: ["16", "8", "12", "4"],
+    correctAnswer: "12",
+}, {
+    question: "What is used to create dynamic web apps that take in user inputs, animate elements & much more?",
+    options: ["CSS", "Javascript", "Bootstrap", "GitBash"],
+    correctAnswer: "JavaScript",
+}, {
+    question: "Indexes always start with what number?",
+    options: ["A", "1", "100", "0"],
+    correctAnswer: "0",
+},
+{
+    question: "What is a set of code features that developers can use in their app to interact with components of a user's web browser, data sets, hardware/software on a user's computer?",
+    options: ["API", "HTML", "HTTPS", "Bootstrap"],
+    correctAnswer: "API",
+},
+{
+    question: "What function stops additional nested events from firing off?",
+    options: ["Stop Propogation", "Stop Javascript", "Stop HTML", "Stop Load"],
+    correctAnswer: "Stop Propogation",
+},
+];
 
 
 // var correctAnswerCount = 0;
@@ -60,10 +70,6 @@ function startQuiz() {
 //     } else {
 //         return ("Wrong!");
 //     }
-// }
-
-// function setNextQuestion() {
-
 // }
 
 // function selectAnswer() {

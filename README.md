@@ -8,9 +8,11 @@ Code-Quiz is a series of Web Development coding trivia questions.
 2. If they answer correctly, they will see "Correct"! 
     * But if the answer is wrong, they will see "Wrong!", and 10 seconds will be deducted from the current time on the timer!
 
-2. When all questions are answered OR the timer reaches 0, then the game is over, & they will get a message saying "Game Over!".
+3. After the current question is answered, a new question and set of answers will appear.
 
-3. They will then be able to add their initals to get saved to "High Scores".
+4. When all questions are answered OR the timer reaches 0, then the game is over, & they will get a message saying "Game Over!".
+
+5. They will then be able to add their initals to get saved to "High Scores".
 
 * Quick View of Game
 (add link to screenshot)
