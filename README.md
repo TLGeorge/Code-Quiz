@@ -15,7 +15,7 @@ Code-Quiz is a series of Web Development coding trivia questions.
 5. They will then be able to add their initals to get saved to "High Scores".
 
 * Quick View of Game
-(add link to screenshot)
+./Images/CodeQuiz.jpeg (2).png
 
 * Taneisha's Password Generator 
 https://tlgeorge.github.io/Code-Quiz/

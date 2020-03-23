@@ -12,6 +12,8 @@ var timerEl = document.querySelector("#navbar-timer");
 var secondsLeft = 60;
 var timerInterval;
 var currentQuestionPosition = 0;
+var correctAnswer = document.getElementById("correct");
+var wrongAnswer = document.getElementById("wrong");
 
 // Add event listener to "Start Quiz" button
 startBtn.addEventListener("click", startQuiz)
@@ -33,18 +35,13 @@ function startQuiz() {
 function startTimer() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
-        timeEl.textContent = secondsLeft;
+        timeEl.textContent = "Timer:" + secondsLeft;
+
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            sendMessage();
         }
     }, 1000);
 }
-
-function sendMessage() {
-    timeEl.textContent = "Time's Up!";
-}
-
 
 // Add event listener to "Next" button
 nextButton.addEventListener("click", setNextQuestion)
@@ -53,9 +50,9 @@ nextButton.addEventListener("click", setNextQuestion)
 function setNextQuestion() {
     quizQuestionDiv.textContent = questions[0].question;
     option1Btn.textContent = questions[0].options[0];
-    option2Btn.textContent = questions[1].options[1];
-    option3Btn.textContent = questions[2].options[2];
-    option4Btn.textContent = questions[3].options[3];
+    option2Btn.textContent = questions[0].options[1];
+    option3Btn.textContent = questions[0].options[2];
+    option4Btn.textContent = questions[0].options[3];
 }
 
 function showQuestion(question) {
@@ -64,50 +61,25 @@ function showQuestion(question) {
 
 var questions = [{
     question: "How many columns can you have in a row?",
-    options: {
-        option1: ["16", "incorrect"],
-        option2: ["8", "incorrect"],
-        option3: ["12", "correct"],
-        option4: ["4", "incorrect"]
-    },
+    options: ["16", "8", "4", "12"],
     correctAnswer: "12",
 }, {
     question: "What is used to create dynamic web apps that take in user inputs, animate elements & much more?",
-    options: {
-        option1: ["CSS", "incorrect"],
-        option2: ["Javascript", "correct"],
-        option3: ["Bootstrap", "incorrect"],
-        option4: ["GitBash", "incorrect"]
-    },
+    options: ["CSS", "Javascript", "Bootstrap", "GitBash"],
     correctAnswer: "JavaScript",
 }, {
     question: "Indexes always start with what number?",
-    options: {
-        option1: ["A", "incorrect"],
-        option2: ["1", "incorrect"],
-        option3: ["100", "incorrect"],
-        option4: ["0", "incorrect"]
-    },
+    options: ["A", "1", "100", "0"],
     correctAnswer: "0",
 },
 {
     question: "What is a set of code features that developers can use in their app to interact with components of a user's web browser, data sets, hardware/software on a user's computer?",
-    options: {
-        option1: ["API", "correct"],
-        option2: ["HTML", "incorrect"],
-        option3: ["HTTPS", "incorrect"],
-        option4: ["Bootstrap", "incorrect"]
-    },
+    options: ["API", "HTML", "HTTPS", "Bootstrap"],
     correctAnswer: "API",
 },
 {
     question: "What function stops additional nested events from firing off?",
-    options: {
-        option1: ["Stop Propogation", "correct"],
-        option2: ["Stop Javascript", "incorrect"],
-        option3: ["Stop HTML", "incorrect"],
-        option4: ["Stop Load", "incorrect"]
-    },
+    options: ["Stop Propogation", "Stop Javascript", "Stop HTML", "Stop Load"],
     correctAnswer: "Stop Propogation",
 },
 ];
