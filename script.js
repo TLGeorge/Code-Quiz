@@ -7,13 +7,13 @@ var option1Btn = document.querySelector("#Answer-1");
 var option2Btn = document.querySelector("#Answer-2");
 var option3Btn = document.querySelector("#Answer-3");
 var option4Btn = document.querySelector("#Answer-4");
-var nextButton = document.querySelector("#next-button");
 var timerEl = document.querySelector("#navbar-timer");
 var secondsLeft = 60;
 var timerInterval;
 var currentQuestionPosition = 0;
 var correctAnswer = document.getElementById("correct");
 var wrongAnswer = document.getElementById("wrong");
+var endingScreen = document.querySelector("#ending-screen");
 
 var questions = [{
     question: "How many columns can you have in a row?",
@@ -48,15 +48,13 @@ function startQuiz() {
     startBtn.classList.add("hide");
     console.log("Start Button Removed");
     quizRules.classList.add("hide");
-    nextButton.classList.remove("hide");
-    console.log("next button displayed");
     quizSectionDiv.classList.remove("hide");
     console.log("quiz section displayed");
     setNextQuestion()
 }
 
 // Function to start timer
-function startTimer() {
+function startTimer(startQuiz) {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = "Timer:" + secondsLeft;
@@ -67,8 +65,6 @@ function startTimer() {
     }, 1000);
 }
 
-// Add event listener to "Next" button
-nextButton.addEventListener("click", setNextQuestion)
 
 // Update quiz with next question
 function setNextQuestion() {
@@ -77,122 +73,123 @@ function setNextQuestion() {
     option2Btn.textContent = questions[0].options[1];
     option3Btn.textContent = questions[0].options[2];
     option4Btn.textContent = questions[0].options[3];
+
+
+    option1Btn.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion2();
+    })
+    option2Btn.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion2();
+    })
+    option3Btn.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion2();
+    })
+    option4Btn.addEventListener("click", function (event) {
+        correctAnswer.removeAttribute("class", "hide");
+        nextQuestion2();
+    })
+
 }
 
-button1.addEventListener("click", function (event) {
-    wrongAnswer.removeAttribute("class", "hide");
-    nextQuestion2();
-})
-button2.addEventListener("click", function (event) {
-    wrongAnswer.removeAttribute("class", "hide");
-    nextQuestion2();
-})
-button3.addEventListener("click", function (event) {
-    wrongAnswer.removeAttribute("class", "hide");
-    nextQuestion2();
-})
-button4.addEventListener("click", function (event) {
-    correctAnswer.removeAttribute("class", "hide");
-    nextQuestion2();
-})
-
-
 function nextQuestion2() {
-    questionElement.innerText = questions[1].question;
-    button1.innerText = questions[1].options[0];
-    button2.innerText = questions[1].options[1];
-    button3.innerText = questions[1].options[2];
-    button4.innerText = questions[1].options[3];
+    quizQuestionDiv.innerText = questions[1].question;
+    option1Btn.innerText = questions[1].options[0];
+    option2Btn.innerText = questions[1].options[1];
+    option3Btn.innerText = questions[1].options[2];
+    option4Btn.innerText = questions[1].options[3];
 
-    button1.addEventListener("click", function (event) {
+    option1Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         nextQuestion3();
     })
-    button2.addEventListener("click", function (event) {
+    option2Btn.addEventListener("click", function (event) {
         correctAnswer.removeAttribute("class", "hide");
         nextQuestion3();
     })
-    button3.addEventListener("click", function (event) {
+    option3Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         nextQuestion3();
     })
-    button4.addEventListener("click", function (event) {
+    option4Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         nextQuestion3();
     })
-
 }
 
 function nextQuestion3() {
-    questionElement.innerText = questions[2].question;
-    button1.innerText = questions[2].options[0];
-    button2.innerText = questions[2].options[1];
-    button3.innerText = questions[2].options[2];
-    button4.innerText = questions[2].options[3];
+    quizQuestionDiv.innerText = questions[2].question;
+    option1Btn.innerText = questions[2].options[0];
+    option2Btn.innerText = questions[2].options[1];
+    option3Btn.innerText = questions[2].options[2];
+    option4Btn.innerText = questions[2].options[3];
 
-    button1.addEventListener("click", function (event) {
+    option1Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         nextQuestion4();
     })
-    button2.addEventListener("click", function (event) {
+    option2Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         nextQuestion4();
     })
-    button3.addEventListener("click", function (event) {
+    option3Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         nextQuestion4();
     })
-    button4.addEventListener("click", function (event) {
+    option4Btn.addEventListener("click", function (event) {
         correctAnswer.removeAttribute("class", "hide");
         nextQuestion4();
     })
 }
 
-function nextQuestion4() {
-    questionElement.innerText = questions[3].question;
-    button1.innerText = questions[3].options[0];
-    button2.innerText = questions[3].options[1];
-    button3.innerText = questions[3].options[2];
-    button4.innerText = questions[3].options[3];
 
-    button1.addEventListener("click", function (event) {
+function nextQuestion4() {
+    quizQuestionDiv.innerText = questions[3].question;
+    option1Btn.innerText = questions[3].options[0];
+    option2Btn.innerText = questions[3].options[1];
+    option3Btn.innerText = questions[3].options[2];
+    option4Btn.innerText = questions[3].options[3];
+
+    option1Btn.addEventListener("click", function (event) {
         correctAnswer.removeAttribute("class", "hide");
         nextQuestion5();
     })
-    button2.addEventListener("click", function (event) {
+    option2Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         nextQuestion5();
     })
-    button3.addEventListener("click", function (event) {
+    option3Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         nextQuestion5();
     })
-    button4.addEventListener("click", function (event) {
+    option4Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         nextQuestion5();
     })
 }
 
 function nextQuestion5() {
-    questionElement.innerText = questions[4].question;
-    button1.innerText = questions[4].options[0];
-    button2.innerText = questions[4].options[1];
-    button3.innerText = questions[4].options[2];
-    button4.innerText = questions[4].options[3];
+    quizQuestionDiv.innerText = questions[4].question;
+    option1Btn.innerText = questions[4].options[0];
+    option2Btn.innerText = questions[4].options[1];
+    option3Btn.innerText = questions[4].options[2];
+    option4Btn.innerText = questions[4].options[3];
 
-    button1.addEventListener("click", function (event) {
+    option1Btn.addEventListener("click", function (event) {
         correctAnswer.removeAttribute("class", "hide");
         endingScreen();
     })
-    button2.addEventListener("click", function (event) {
+    option2Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         endingScreen();
     })
-    button3.addEventListener("click", function (event) {
+    option3Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         endingScreen();
     })
-    button4.addEventListener("click", function (event) {
+    option4Btn.addEventListener("click", function (event) {
         wrongAnswer.removeAttribute("class", "hide");
         endingScreen();
     })
