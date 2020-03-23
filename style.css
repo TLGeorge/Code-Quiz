@@ -52,7 +52,7 @@ header {
   text-align: center;
 }
 
-.card-body {
+.quiz-question {
   min-height: 100px;
   text-align: center;
 }
@@ -89,6 +89,10 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+}
+
+.hide {
+display: none;
 }
 
 button[disabled] {
