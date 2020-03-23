@@ -15,6 +15,30 @@ var currentQuestionPosition = 0;
 var correctAnswer = document.getElementById("correct");
 var wrongAnswer = document.getElementById("wrong");
 
+var questions = [{
+    question: "How many columns can you have in a row?",
+    options: ["16", "8", "4", "12"],
+    correctAnswer: "12",
+}, {
+    question: "What is used to create dynamic web apps that take in user inputs, animate elements & much more?",
+    options: ["CSS", "Javascript", "Bootstrap", "GitBash"],
+    correctAnswer: "JavaScript",
+}, {
+    question: "Indexes always start with what number?",
+    options: ["A", "1", "100", "0"],
+    correctAnswer: "0",
+},
+{
+    question: "What is a set of code features that developers can use in their app to interact with components of a user's web browser, data sets, hardware/software on a user's computer?",
+    options: ["API", "HTML", "HTTPS", "Bootstrap"],
+    correctAnswer: "API",
+},
+{
+    question: "What function stops additional nested events from firing off?",
+    options: ["Stop Propogation", "Stop Javascript", "Stop HTML", "Stop Load"],
+    correctAnswer: "Stop Propogation",
+},
+];
 // Add event listener to "Start Quiz" button
 startBtn.addEventListener("click", startQuiz)
 
@@ -55,34 +79,126 @@ function setNextQuestion() {
     option4Btn.textContent = questions[0].options[3];
 }
 
-function showQuestion(question) {
-    quizQuestionDiv.textContent = questions.question
+button1.addEventListener("click", function (event) {
+    wrongAnswer.removeAttribute("class", "hide");
+    nextQuestion2();
+})
+button2.addEventListener("click", function (event) {
+    wrongAnswer.removeAttribute("class", "hide");
+    nextQuestion2();
+})
+button3.addEventListener("click", function (event) {
+    wrongAnswer.removeAttribute("class", "hide");
+    nextQuestion2();
+})
+button4.addEventListener("click", function (event) {
+    correctAnswer.removeAttribute("class", "hide");
+    nextQuestion2();
+})
+
+
+function nextQuestion2() {
+    questionElement.innerText = questions[1].question;
+    button1.innerText = questions[1].options[0];
+    button2.innerText = questions[1].options[1];
+    button3.innerText = questions[1].options[2];
+    button4.innerText = questions[1].options[3];
+
+    button1.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion3();
+    })
+    button2.addEventListener("click", function (event) {
+        correctAnswer.removeAttribute("class", "hide");
+        nextQuestion3();
+    })
+    button3.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion3();
+    })
+    button4.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion3();
+    })
+
 }
 
-var questions = [{
-    question: "How many columns can you have in a row?",
-    options: ["16", "8", "4", "12"],
-    correctAnswer: "12",
-}, {
-    question: "What is used to create dynamic web apps that take in user inputs, animate elements & much more?",
-    options: ["CSS", "Javascript", "Bootstrap", "GitBash"],
-    correctAnswer: "JavaScript",
-}, {
-    question: "Indexes always start with what number?",
-    options: ["A", "1", "100", "0"],
-    correctAnswer: "0",
-},
-{
-    question: "What is a set of code features that developers can use in their app to interact with components of a user's web browser, data sets, hardware/software on a user's computer?",
-    options: ["API", "HTML", "HTTPS", "Bootstrap"],
-    correctAnswer: "API",
-},
-{
-    question: "What function stops additional nested events from firing off?",
-    options: ["Stop Propogation", "Stop Javascript", "Stop HTML", "Stop Load"],
-    correctAnswer: "Stop Propogation",
-},
-];
+function nextQuestion3() {
+    questionElement.innerText = questions[2].question;
+    button1.innerText = questions[2].options[0];
+    button2.innerText = questions[2].options[1];
+    button3.innerText = questions[2].options[2];
+    button4.innerText = questions[2].options[3];
+
+    button1.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion4();
+    })
+    button2.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion4();
+    })
+    button3.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion4();
+    })
+    button4.addEventListener("click", function (event) {
+        correctAnswer.removeAttribute("class", "hide");
+        nextQuestion4();
+    })
+}
+
+function nextQuestion4() {
+    questionElement.innerText = questions[3].question;
+    button1.innerText = questions[3].options[0];
+    button2.innerText = questions[3].options[1];
+    button3.innerText = questions[3].options[2];
+    button4.innerText = questions[3].options[3];
+
+    button1.addEventListener("click", function (event) {
+        correctAnswer.removeAttribute("class", "hide");
+        nextQuestion5();
+    })
+    button2.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion5();
+    })
+    button3.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion5();
+    })
+    button4.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        nextQuestion5();
+    })
+}
+
+function nextQuestion5() {
+    questionElement.innerText = questions[4].question;
+    button1.innerText = questions[4].options[0];
+    button2.innerText = questions[4].options[1];
+    button3.innerText = questions[4].options[2];
+    button4.innerText = questions[4].options[3];
+
+    button1.addEventListener("click", function (event) {
+        correctAnswer.removeAttribute("class", "hide");
+        endingScreen();
+    })
+    button2.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        endingScreen();
+    })
+    button3.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        endingScreen();
+    })
+    button4.addEventListener("click", function (event) {
+        wrongAnswer.removeAttribute("class", "hide");
+        endingScreen();
+    })
+}
+
+
 
 // function selectAnswer() {
 
